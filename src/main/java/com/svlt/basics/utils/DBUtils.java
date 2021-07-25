@@ -1,4 +1,4 @@
-package adv_java_trn.basic_funda.utils;
+package com.svlt.basics.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,11 +15,14 @@ public class DBUtils {
 
 	public static final String CREATE_QUERY = "insert into students (name, email, rollNo) values (?, ?, ?)";
 	public static final String READ_QUERY = "select * from students";
+	public static final String READ_SPECIFIC_STD_QUERY = "select * from students where rollNo = ?";
 	
 	// get connection
 	public static Connection getConnection() throws SQLException {
 		
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
+
 			Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 			return connection;
 		
@@ -54,8 +57,20 @@ public class DBUtils {
 	
 
 	// read entry
-	public static ResultSet readEntries(Connection connection, final String sql) throws SQLException {
+	public static ResultSet readEntries(Connection connection, final String sql, Map<String, Object> params) throws SQLException {
 		PreparedStatement prepareStatement = connection.prepareStatement(sql);
+		
+		int index = 1;
+		for(String key: params.keySet()) {
+			Object value = params.get(key);
+			
+			if (value instanceof String) {
+				prepareStatement.setString(index, (String) value);
+			} else if (value instanceof Integer) {
+				prepareStatement.setInt(index, (int) value);
+			}
+			index++;
+		}
 		
 		return prepareStatement.executeQuery();
 	}
