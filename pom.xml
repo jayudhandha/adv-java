@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>mu-web-app</groupId>
-  <artifactId>svlt-basics</artifactId>
+  <artifactId>adv-java</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>svlt-basics Maven Webapp</name>
+  <name>Adv Java Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -49,7 +49,7 @@
   </dependencies>
 
   <build>
-    <finalName>svlt-basics</finalName>
+    <finalName>Advance-Java</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

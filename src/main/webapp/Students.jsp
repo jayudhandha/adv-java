@@ -10,7 +10,9 @@
 	<label>Welcome Students...</label>
 	
 	<%
-		out.println("Student: "+request.getAttribute("student"));
+	out.println("Student: "+session.getAttribute("std"));
+
+//		out.println("Student: "+request.getAttribute("student"));
 	%>
 </body>
 </html>

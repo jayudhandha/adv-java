@@ -1,8 +1,6 @@
 package com.svlt.basics.filter;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -11,37 +9,28 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 /**
- * Servlet Filter implementation class StudentFilter
+ * Servlet Filter implementation class DepartmentFilter
  */
-public class StudentFilter implements Filter {
+public class DepartmentFilter implements Filter {
 
-    public StudentFilter() {
+    public DepartmentFilter() {
     }
 
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		// TODO Auto-generated method stub
-		// place your code here
-		System.out.println("Inside Student filter...");
-		PrintWriter out = response.getWriter();
-		Object rollNo = request.getParameter("rollNo");
+		System.out.println("Inside Department filter");
 		
-		if (Integer.parseInt(rollNo.toString()) > 0) {
-			chain.doFilter(request, response);
-		} else {
-			out.println("Invalid Roll No Value");
-		}
-		
+		// pass the request along the filter chain
+		chain.doFilter(request, response);
 	}
 
 	public void init(FilterConfig fConfig) throws ServletException {
 	}
-
-	@Override
+	
 	public void destroy() {
-		
 	}
+
 
 }

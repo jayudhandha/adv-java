@@ -10,6 +10,16 @@
   	<description></description>
   	<filter-class>com.svlt.basics.filter.StudentFilter</filter-class>
   </filter>
+  <filter>
+  	<filter-name>DepartmentFilter</filter-name>
+  	<display-name>DepartmentFilter</display-name>
+  	<description></description>
+  	<filter-class>com.svlt.basics.filter.DepartmentFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>DepartmentFilter</filter-name>
+  	<url-pattern>/saveStudents</url-pattern>
+  </filter-mapping>
   <filter-mapping>
   	<filter-name>StudentFilter</filter-name>
   	<url-pattern>/saveStudents</url-pattern>
@@ -25,9 +35,29 @@
       <param-value>custom_db</param-value>
     </init-param>
   </servlet>
+  <servlet>
+  	<servlet-name>DepartmentServlet</servlet-name>
+  	<display-name>DepartmentServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.svlt.basics.DepartmentServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>StudentData</servlet-name>
+  	<display-name>StudentData</display-name>
+  	<description></description>
+  	<servlet-class>com.svlt.basics.StudentData</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>DemoServlet</servlet-name>
   	<url-pattern>/saveStudents</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DepartmentServlet</servlet-name>
+  	<url-pattern>/DepartmentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>StudentData</servlet-name>
+  	<url-pattern>/studentData</url-pattern>
   </servlet-mapping>
   
   <context-param>

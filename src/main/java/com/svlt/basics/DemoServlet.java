@@ -2,6 +2,7 @@ package com.svlt.basics;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,6 +14,7 @@ import java.util.Map;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -88,14 +90,22 @@ public class DemoServlet extends HttpServlet {
 				if (noOfRows > 0) {
 					Student std = mapParamsToDao(params);
 					
-					request.setAttribute("student", std);
-					request.getRequestDispatcher("Students.jsp").forward(request, response);
-						
-//					HttpSession session = request.getSession();
-//					System.out.println("[ID ] Insert successful... "+session.getId());
+					String encodedName = URLEncoder.encode(std.getName(), "UTF-8");
 					
-//					session.setAttribute("std", std);
-//					response.sendRedirect("Students.jsp");
+					Cookie cookie = new Cookie("name", encodedName);
+					
+//					response.addCookie(cookie);
+//					
+//					response.sendRedirect("studentData");
+//					request.setAttribute("student", std);
+//					request.getRequestDispatcher("Students.jsp").forward(request, response);
+					
+					// Session is a server side entity
+					HttpSession session = request.getSession();
+					System.out.println("[ID ] Insert successful... "+session.getId());
+					
+					session.setAttribute("std", std);
+					response.sendRedirect("Students.jsp");
 				}
 			}
 		} catch (SQLException e) {
