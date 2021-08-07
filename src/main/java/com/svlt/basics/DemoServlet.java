@@ -68,6 +68,7 @@ public class DemoServlet extends HttpServlet {
 		ServletConfig servletConfig = getServletConfig();
 		out.println("DB Name: "+servletConfig.getInitParameter("dbname"));
 		out.println("DB Name: "+servletContext.getInitParameter("dbname"));
+		
 //		out.println("DB User: "+servletContext.getInitParameter("dbuser"));
 		
 
@@ -103,6 +104,10 @@ public class DemoServlet extends HttpServlet {
 					// Session is a server side entity
 					HttpSession session = request.getSession();
 					System.out.println("[ID ] Insert successful... "+session.getId());
+					
+					// Below method is used to set session timeout
+//					session.setMaxInactiveInterval(noOfRows);
+					
 					
 					session.setAttribute("std", std);
 					response.sendRedirect("Students.jsp");
