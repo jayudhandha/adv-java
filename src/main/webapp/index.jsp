@@ -50,19 +50,14 @@
 <!-- Footer -->
 <%-- <%@ include file="Footer.html" %>
 
-
 <% if (a > b) {
-	
 	
 }%>
  --%>
 <%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:if test="${10>5}">
-</c:if>
- --%>
+</c:if> --%>
  
-  
-
  </body>
 </html>
