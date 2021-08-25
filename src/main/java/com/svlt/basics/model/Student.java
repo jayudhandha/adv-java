@@ -1,4 +1,4 @@
-package com.svlt.basics.dao;
+package com.svlt.basics.model;
 
 
 // Java Bean

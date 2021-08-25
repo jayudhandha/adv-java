@@ -7,11 +7,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<label>Welcome Students...</label>
+	<!-- <label>Welcome Students...</label> -->
 	
+	<!-- Header  -->
+	<%@ include file="Header.html" %>
+
 	<%=
 	"Student: "+session.getAttribute("std")
 //		out.println("Student: "+request.getAttribute("student"));
 	%>
+	 </br>
+	 
+	<!-- Footer -->
+	<%@ include file="Footer.html" %>
+	 
 </body>
 </html>

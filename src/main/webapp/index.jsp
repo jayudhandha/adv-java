@@ -22,7 +22,6 @@
   
    <%= "Hello from Expression tag"%> 
   
--->
  <%! String name = "Jayesh"; %>
  
   <%! int square(int n) {
@@ -32,7 +31,38 @@
  <%= "Hello "+name%> 
  </br>
   <%= "Square of 5 : "+square(5)%> 
+
+<%@ page import="java.util.Date" %> 
+ Today's date is: <%= new Date()%>
+-->
+
+<!-- Header  -->
+<%@ include file="Header.html" %>
+
+<!-- Data -->
+<form method="POST" action="saveStudents">
+	<input type="text" name="name" placeholder="Name"/>
+	<input type="text" name="email" placeholder="Email"/>
+	<input type="text" name="rollNo" placeholder="RollNo"/>
+	<input type="submit" />
+</form>
+
+<!-- Footer -->
+<%-- <%@ include file="Footer.html" %>
+
+
+<% if (a > b) {
+	
+	
+}%>
+ --%>
+<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<c:if test="${10>5}">
+</c:if>
+ --%>
  
   
+
  </body>
 </html>
