@@ -10,7 +10,7 @@
 
 <%@ taglib uri="WEB-INF/NewCustomTag.tld" prefix="m" %>
 
-<m:customtag square="2"></m:customtag>
+<m:customtag number="10"></m:customtag>
 
 </body>
 </html>

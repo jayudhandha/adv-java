@@ -12,6 +12,10 @@
 	<tag>
 		<name>customtag</name>
 		<tag-class>com.svlt.basics.tags.CustomTagHandler</tag-class>
+		<attribute>
+			<name>number</name>
+			<required>true</required>
+		</attribute>
 	</tag>
 
 </taglib>
